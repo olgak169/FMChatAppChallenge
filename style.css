@@ -139,7 +139,7 @@ body {
 }
 
 .app-content {
-  padding: 1rem 0.5rem;
+  padding: 0.5rem;
   font-size: 9px;
   letter-spacing: -0.4px;
 }
@@ -280,7 +280,7 @@ body {
   -webkit-transform: translateY(200%);
           transform: translateY(200%);
   background: white;
-  padding: 0.5rem;
+  padding: 0.4rem;
   width: 100%;
   z-index: 0;
 }
