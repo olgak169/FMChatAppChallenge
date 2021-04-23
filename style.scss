@@ -1,0 +1,467 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+
+$text-lead: hsl(276, 100%, 81%);
+$text-chat-left: hsl(276, 55%, 52%);
+$text-chat-right:hsl(271, 15%, 43%);
+$text-placeholder: hsl(206, 6%, 79%);
+$text-heading: hsl(271, 36%, 24%);
+$text-p: hsl(270, 7%, 64%);
+$bg-app: hsl(270, 20%, 96%);
+$bg-chat-left: hsl(277, 33%, 92%);
+$bg-btn: hsl(271, 36%, 24%);
+$btn-accent: hsl(289, 100%, 72%);
+$white: hsl(0, 0%, 100%);
+$gradient-right: linear-gradient(to right, hsl(293, 100%, 63%),hsl(264, 100%, 61%));
+$gradient-left: linear-gradient(to left, hsl(293, 100%, 63%),hsl(264, 100%, 61%));
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url(./images/bg-sm.svg) no-repeat , #fafafa;
+    background-size: cover;
+}
+.container {
+    padding: 4rem 2rem;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.show-case {
+    display: block;
+    width: 245px;
+    height: 505px;
+    border-radius: 30px;
+    background: $white;
+    margin: 0 auto 4rem auto; 
+    box-shadow: 1px 15px 30px rgba(60, 26, 73, 0.1);
+    padding: 10px;
+}
+.app-inner {
+    background: $bg-app;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.app-top {
+    width: 100%;
+    height: 66px;
+    border-radius: 20px 20px 6px 6px;
+    background: $gradient-left;
+    background-size: 100% 100%;
+    padding: 1.75rem 1rem 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.14);
+    position: relative;
+    animation: gradient 2s ease 2;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $white;
+        width: 130px;
+        height: 18px;
+        border-radius: 0 0 20px 20px;
+    }
+    .app-top-info {
+        display: flex;
+        align-items: center;
+        padding-left: 0.8rem;
+        position: relative;
+        
+
+        &::before {
+            content: url(./images/arrow-left.svg);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        &::after {
+            content: url(./images/dots.svg);
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .avatar {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: 1px solid $white;
+        overflow: hidden;
+        margin-right: 1rem;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .info {
+        h2 {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: -0.8px;
+            color: $white;
+            margin-bottom: 0.1rem;
+        }
+        p {
+            font-size: 9px;
+            letter-spacing: -0.5px;
+            color: $text-lead;
+        }
+    }
+}
+.app-content {
+    padding:1rem 0.5rem;
+    font-size: 9px;
+    letter-spacing: -0.4px;
+    .msg-left {
+        border-radius: 10px 10px 10px 3px;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        width: 128px;
+        background: $bg-chat-left;
+        color: $text-chat-left;
+        position: relative;
+        transform-origin: left;
+    }
+    .msg-left-text {
+        background: $bg-chat-left;
+    }
+    .msg-right {
+        margin-left: auto;
+        margin-bottom: 0.5rem;
+        border-radius: 10px 10px 3px 10px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+        position: relative;
+        color: $text-chat-right;
+        background: $white;
+        padding: 0.5rem;
+        transform-origin: right;
+    }
+    #msg-6 {
+        width: 128px;
+    }
+    #msg-7 {
+        width: 85px;
+        margin-bottom: 0.8rem;
+    }
+    .msg-right-text {
+        background: $white;
+        z-index: 5;
+    }
+    .msg-imgs {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0.8rem 0 0.5rem 0;
+    }
+    .app-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        overflow: hidden;
+        display: inline-block;
+        margin: 0 0.25rem;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .msg-btn {
+        background: $gradient-right;
+        width: 160px;
+        color: $white;
+        padding: 0.5rem 1rem 0.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+            display: inline-block;
+            position: relative;
+        }
+        & span:first-of-type::before{
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 1px solid $btn-accent;
+            position: absolute;
+            top: -0.1rem;
+            left: -1.4rem;
+        }
+        & span:last-of-type {
+            font-weight: 700;
+            font-size: 12px;
+        }
+    }
+    .app-bottom {
+        padding: 0.5rem 0.3rem 0.5rem 1.2rem;
+        border-radius: 20px;
+        height: 35px;
+        width: 100%;
+        background: $white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 0.7rem;
+        position: relative;
+        overflow: hidden;
+        .reply {
+            position: absolute;
+            display: inline-block;
+            top: 20%;
+            left: 1.5rem;
+            transform: translateY(200%);
+            background: $white;
+            padding: 0.5rem;
+            width: 100%;
+            z-index: 0;
+        }
+        p {
+            position: relative;
+            color: $text-placeholder;
+            background: $white;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            z-index: 0;
+        }
+        .app-bottom-btn {
+            background: url(./images/arrow-right.svg) no-repeat 55% center,$bg-btn;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            position: relative;
+            z-index: 15;
+            animation: btn 3s 5;
+            animation-delay: 10.3s;
+        }
+        .reply-1 {
+            animation: replies 10s backwards;
+            animation-delay: 4s;
+        }
+        .reply-2 {
+            animation: replies 10s backwards;
+            animation-delay: 7.5s;
+        }
+        .reply-3 {
+            animation: replies 10s backwards;
+            animation-delay: 10.3s;
+        }
+        .reply-4 {
+            animation: replies 10s backwards;
+            animation-delay: 13.6s;
+        }
+        .reply-5 {
+            animation: replies 9s backwards;
+            animation-delay: 17.3s;
+        }
+
+    }
+    .msg {
+        animation: msg 3s;
+        
+    }
+    #msg-9,
+    #msg-10 {
+        animation: msg 2s, gradient 2s 2;
+        animation-fill-mode: backwards;
+        animation-delay: 30s, 32s;
+    }
+    .msg p {
+        position: relative;
+        z-index: 5;
+        animation:  text 3s ease;
+    }
+    .type {
+        width: 100%;
+        top: 50%;
+        position: absolute;
+        display: flex;
+        & .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: $text-p;
+            margin-right: 0.4rem;
+            z-index: 0;
+            animation: dots 800ms 3 backwards;
+        }
+    }
+    .msg-right .type {
+        left: 80%;
+        transform: translate(-50%, -50%);
+    }
+}
+.text-content {
+    text-align: center;
+    h1 {
+        font-size: 40px;
+        font-weight: 500;
+        margin-bottom: 1.375rem;
+        color: $text-heading;
+    }
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.8;
+        color: $text-p;
+    }
+}
+$msg: 8;
+@for $i from 1 through $msg {
+    #msg-#{$i} {
+        animation-delay: ($i * 3 + 1) + s;
+        animation-fill-mode: backwards;
+    }
+}
+@for $i from 1 through $msg {
+    #msg-#{$i} p {
+        animation-fill-mode: both;
+        animation-delay: (($i * 3 + 1)+0.8) + s;
+    }
+}
+@for $i from 1 through $msg {
+    @for $c from 1 through 3 {
+        #msg-#{$i} .type .dot:nth-of-type(#{$c}) {
+            animation-delay: ($i * 3 + 1) + ($c * 0.1 ) + s;
+        }
+    }
+}
+@keyframes msg {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0.6);
+    }
+    90% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes dots {
+    0% {
+        background: #a39daa;
+        transform: scale(0.8);
+        opacity: 1;
+        z-index: 5;
+    }
+    40% {
+        background: #fafafa;
+        transform: scale(0.9);
+    }
+    80% {
+        background: #a39daa;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        z-index: 0;
+    }
+}
+@keyframes text {
+    0% {
+        opacity: 0;
+        z-index: 0;
+    }
+    70% {
+        opacity: 0;
+        z-index: 0;
+    }
+    100% {
+        opacity: 1;
+        z-index: 15;
+    }
+}
+@keyframes gradient {
+    0%{
+        background-position: 0% 50%;
+        background-size: 200% 200%;}
+    50%{
+        background-position: 100% 50%;
+        background-size: 200% 200%;}
+    100%{
+        background-position: 0% 50%;
+        background-size: 200% 200%;}
+}
+@keyframes replies {
+    0% {
+        opacity: 0;
+        z-index: 0;
+        transform: translateY(200%);
+    }
+    50% {
+        opacity: 0;
+        z-index: 0;
+        transform: translateY(200%);
+    }
+    80% {
+        opacity: 1;
+        z-index: 10;
+        transform: translateY(-10%);
+    }
+    100% {
+        opacity: 0;
+        z-index: 0;
+        transform: translateY(200%);
+    }
+}
+@keyframes btn {
+    0% {
+        background-color: hsl(271, 36%, 24%);
+    }
+    50% {
+        background-color: hsl(271, 36%, 24%);
+    }
+    80% {
+        background-color: hsl(293, 100%, 63%);
+    }
+    100% {
+        background-color: hsl(271, 36%, 24%);
+    }
+}
+
+@media (min-width: 410px) {
+    body {
+        background: url(./images/bg-med.svg) no-repeat, #fafafa;
+        background-size: 120%;
+    }
+}
+@media (min-width: 910px) {
+    body {
+        background: url(./images/bg-big.svg) no-repeat , #fafafa;
+        background-size: 100%;
+    }
+    .container {
+        display: flex;
+        max-width: 55rem;
+        align-items: center;
+        padding-top: 9rem;
+    }
+    .show-case {
+        max-width: 245px;
+        margin-right: 7.5rem;
+    }
+    .text-content {
+        flex: 1;
+        text-align: left;
+    }
+}
